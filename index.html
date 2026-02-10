@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Franciele | Desenvolvedora Front-end</title>
+  <meta name="description" content="Portfólio de Franciele — sites profissionais e landing pages para pequenos negócios e profissionais liberais." />
+  <style>
+    :root{
+      /* Paleta: branco, preto, azul */
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --surface2: #f6f8fc;
+      --text: #0b1220;          /* quase preto */
+      --muted: #475569;         /* cinza-azulado */
+      --border: rgba(15, 23, 42, .12);
+      --shadow: 0 18px 50px rgba(2, 6, 23, .10);
+      --radius: 16px;
+      --radius2: 22px;
+
+      --blue: #2563eb;
+      --blue2: #1d4ed8;
+      --blueSoft: rgba(37, 99, 235, .10);
+      --ok: #16a34a;
+
+      --max: 1120px;
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(900px 450px at 10% 10%, rgba(37,99,235,.10), transparent 55%),
+        radial-gradient(900px 450px at 90% 18%, rgba(37,99,235,.08), transparent 60%),
+        var(--bg);
+      line-height: 1.45;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ width: min(var(--max), 92vw); margin: 0 auto; }
+
+    /* Topbar */
+    .topbar{
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; gap:10px; align-items:center;
+      font-weight: 750;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      box-shadow: 0 0 0 6px rgba(37,99,235,.12);
+    }
+    .nav{
+      display:flex; gap: 8px; align-items:center;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .nav a:hover{
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(2,6,23,.03);
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(2,6,23,.02);
+      color: var(--text);
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(2,6,23,.04); border-color: rgba(15, 23, 42, .18); }
+    .btn.primary{
+      border-color: rgba(37,99,235,.22);
+      background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(29,78,216,.10));
+    }
+    .btn.primary:hover{
+      border-color: rgba(37,99,235,.35);
+      background: linear-gradient(135deg, rgba(37,99,235,.16), rgba(29,78,216,.12));
+    }
+    .btn.ok{
+      border-color: rgba(22,163,74,.22);
+      background: linear-gradient(135deg, rgba(22,163,74,.10), rgba(37,99,235,.08));
+    }
+
+    /* HERO */
+    .hero{ padding: 54px 0 26px; }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .nav{ display:none; }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(246,248,252,1));
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+    }
+    .hero-left{ padding: 24px; position: relative; overflow:hidden; }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(37,99,235,.18);
+      background: rgba(37,99,235,.08);
+      color: rgba(15,23,42,.78);
+      font-weight: 750;
+      width: fit-content;
+    }
+    .spark{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 5px rgba(22,163,74,.12);
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    .lead{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+    .cta-row{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+
+    .chips{ display:flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    .chip{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, .12);
+      background: rgba(2,6,23,.02);
+      color: rgba(15,23,42,.78);
+      font-weight: 750;
+      font-size: 13px;
+    }
+
+    .hero-right{
+      padding: 18px;
+      display:flex; flex-direction:column; gap: 12px;
+    }
+    .profile{
+      display:flex; gap: 14px; align-items:center;
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+    }
+    .avatar{
+      width: 86px; height: 86px; border-radius: 20px;
+      border: 1px solid rgba(15,23,42,.14);
+      box-shadow: 0 10px 28px rgba(2,6,23,.10);
+      object-fit: cover;
+      background: #f1f5f9;
+      display:block;
+    }
+    .profile h3{ margin: 0; font-size: 16px; }
+    .profile p{ margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+
+    .kpis{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media (max-width: 980px){
+      .kpis{ grid-template-columns: 1fr; }
+    }
+    .kpi{
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+    }
+    .kpi .n{ font-size: 16px; font-weight: 850; letter-spacing: -.2px; }
+    .kpi .t{ color: var(--muted); font-size: 13px; margin-top: 3px; }
+
+    /* Sections */
+    section{ padding: 22px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap: 16px;
+      margin: 18px 0 12px;
+    }
+    .section-title h2{
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.3px;
+    }
+    .section-title span{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .item{
+      padding: 18px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(15, 23, 42, .10);
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(2,6,23,.06);
+    }
+    .item h3{ margin: 0 0 8px; font-size: 16px; }
+    .item p{ margin: 0; color: var(--muted); font-size: 14px; }
+    .bullets{ margin: 12px 0 0; padding-left: 18px; color: rgba(15,23,42,.80); }
+    .bullets li{ margin: 6px 0; }
+
+    /* Project */
+    .project{
+      padding: 18px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(37,99,235,.20);
+      background: linear-gradient(180deg, rgba(37,99,235,.08), rgba(255,255,255,1));
+      box-shadow: var(--shadow);
+    }
+    .project .tag{
+      display:inline-flex;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(37,99,235,.22);
+      background: rgba(37,99,235,.10);
+      color: rgba(15,23,42,.85);
+      font-weight: 850;
+      font-size: 13px;
+    }
+    .project h3{ margin: 10px 0 8px; font-size: 18px; }
+    .project p{ margin: 0; color: var(--muted); }
+    .project .meta{ margin-top: 12px; display:flex; gap: 8px; flex-wrap: wrap; }
+
+    /* Contact */
+    .contact{
+      padding: 22px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(37,99,235,.18);
+      background: linear-gradient(180deg, rgba(37,99,235,.08), rgba(255,255,255,1));
+      box-shadow: var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .contact h3{ margin: 0 0 6px; }
+    .contact p{ margin: 0; color: var(--muted); }
+
+    footer{
+      padding: 26px 0 34px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .toast{
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15,23,42,.92);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 12px 14px;
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s ease, transform .18s ease;
+    }
+    .toast.show{
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="brandName">Franciele • Front-end</span>
+      </div>
+
+      <nav class="nav" aria-label="Navegação">
+        <a href="#servicos">Serviços</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#processo">Processo</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a class="btn primary" href="#contato" title="Ir para contato">Vamos conversar ✨</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" id="topo">
+      <div class="hero-grid">
+        <div class="card hero-left">
+          <div class="pill"><span class="spark" aria-hidden="true"></span> Agenda aberta para freelas</div>
+          <h1>Sites profissionais que passam confiança e geram contato.</h1>
+          <p class="lead">
+            Sou <strong>desenvolvedora front-end</strong> e crio <strong>sites institucionais</strong> e <strong>landing pages</strong>
+            para pequenos negócios e profissionais liberais — com foco em clareza, credibilidade e conversão.
+          </p>
+
+          <div class="cta-row">
+            <button class="btn ok" id="btnWhats">Chamar no WhatsApp</button>
+            <button class="btn" id="btnCopy">Copiar meu contato</button>
+            <a class="btn" href="#projetos">Ver projetos</a>
+          </div>
+
+          <div class="chips" aria-label="Tecnologias">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Responsivo</span>
+            <span class="chip">UI clean</span>
+          </div>
+        </div>
+
+        <aside class="card hero-right">
+          <div class="profile">
+            <!-- Troque o arquivo em assets/perfil.jpg -->
+            <img class="avatar" id="avatar" src="assets/perfil.jpg" alt="Foto de perfil" />
+            <div>
+              <h3 id="profileName">Franciele</h3>
+              <p id="profileRole">Desenvolvedora Front-end • Sites e Landing Pages</p>
+            </div>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="n">Site institucional</div>
+              <div class="t">1–5 páginas</div>
+            </div>
+            <div class="kpi">
+              <div class="n">Landing page</div>
+              <div class="t">Foco em conversão</div>
+            </div>
+            <div class="kpi">
+              <div class="n">Prazo</div>
+              <div class="t">Combinar conforme escopo</div>
+            </div>
+            <div class="kpi">
+              <div class="n">Pagamento</div>
+              <div class="t">50% início + 50% entrega</div>
+            </div>
+          </div>
+
+          <div class="kpi" style="background: var(--surface2); border-style:dashed;">
+            <div class="n">Quer ver esse layout no seu estilo?</div>
+            <div class="t">Depois, posso adaptar com sua identidade visual (cores, fontes e seções extras).</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="section-title">
+        <h2>Serviços</h2>
+        <span>Escolha o formato ideal para o seu objetivo</span>
+      </div>
+
+      <div class="grid">
+        <div class="item">
+          <h3>Site institucional</h3>
+          <p>Perfeito para apresentar você/empresa, serviços e facilitar contato.</p>
+          <ul class="bullets">
+            <li>Home + Sobre + Serviços + Contato</li>
+            <li>Responsivo (celular/pc)</li>
+            <li>Visual alinhado à sua marca</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>Landing page</h3>
+          <p>Uma página direta, ideal para anúncios e campanhas.</p>
+          <ul class="bullets">
+            <li>Texto organizado + CTA forte</li>
+            <li>Seções de prova social</li>
+            <li>Formulário ou botão WhatsApp</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <h3>Manutenção e ajustes</h3>
+          <p>Melhorias pontuais no seu site atual.</p>
+          <ul class="bullets">
+            <li>Correções de layout</li>
+            <li>Atualização de textos/imagens</li>
+            <li>Novas seções e páginas</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <div class="section-title">
+        <h2>Projeto em destaque</h2>
+        <span>Seu primeiro case já vale ouro 💎</span>
+      </div>
+
+      <article class="project">
+        <span class="tag">Site institucional</span>
+        <h3>Adriana Moura — Psicanálise, Neurociência e TCC</h3>
+        <p>
+          Criação de site para profissional da área da saúde emocional, com foco em presença digital acolhedora,
+          credibilidade e facilidade de contato com pacientes.
+        </p>
+
+        <div class="meta">
+          <span class="chip">Identidade visual</span>
+          <span class="chip">Seções de serviços</span>
+          <span class="chip">CTA para contato</span>
+          <span class="chip">Layout responsivo</span>
+          <span class="chip">HTML • CSS • JS</span>
+        </div>
+
+        <div class="cta-row" style="margin-top:14px;">
+          <a class="btn primary" href="#" onclick="alert('Quando você publicar, coloque aqui o link do projeto! 😊'); return false;">Ver online</a>
+          <a class="btn" href="#contato">Quero um site assim</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="processo">
+      <div class="section-title">
+        <h2>Como funciona</h2>
+        <span>Processo simples e sem enrolação</span>
+      </div>
+
+      <div class="grid">
+        <div class="item">
+          <h3>1) Briefing rápido</h3>
+          <p>Você me diz objetivo, público e referências. Eu te mando um resumo do escopo.</p>
+        </div>
+        <div class="item">
+          <h3>2) Layout + ajustes</h3>
+          <p>Eu monto a primeira versão e ajusto com base no seu feedback.</p>
+        </div>
+        <div class="item">
+          <h3>3) Entrega</h3>
+          <p>Site pronto, responsivo e com botões/contato funcionando.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="section-title">
+        <h2>Contato</h2>
+        <span>Respondo rápido 😉</span>
+      </div>
+
+      <div class="contact">
+        <div>
+          <h3>Vamos tirar seu projeto do papel?</h3>
+          <p>Me chama no WhatsApp e eu te envio uma proposta com prazo e valor.</p>
+          <p style="margin-top:8px;">
+            <strong>E-mail:</strong> <span id="emailText">seuemail@exemplo.com</span>
+            <br/>
+            <strong>WhatsApp:</strong> <span id="phoneText">(00) 90000-0000</span>
+          </p>
+        </div>
+
+        <div class="cta-row">
+          <button class="btn ok" id="btnWhats2">Chamar no WhatsApp</button>
+          <button class="btn" id="btnCopy2">Copiar e-mail</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>© <span id="year"></span> • <span id="footerName">Franciele</span> • Desenvolvedora Front-end</div>
+        <div style="color: rgba(15,23,42,.55);">Feito com HTML, CSS e JS</div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copiado! ✅</div>
+
+  <script>
+    // ====== CONFIGURE AQUI ======
+    const CONFIG = {
+      name: "Franciele",
+      email: "engenheirafrancielecruz@hotmail.com",      // <-- troque pelo seu
+      phone: "5577991579761",            // <-- troque (55 + DDD + número, sem espaços)
+      phoneDisplay: "(77) 99157-9761",    // <-- troque como quer mostrar
+      whatsappMessage:
+        "Oi! Vi seu portfólio e quero um site profissional. Podemos conversar sobre orçamento e prazo?"
+    };
+
+    const $ = (sel) => document.querySelector(sel);
+    const toast = $("#toast");
+
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 1400);
+    }
+
+    function openWhatsApp(){
+      const text = encodeURIComponent(CONFIG.whatsappMessage);
+      const url = `https://wa.me/${CONFIG.phone}?text=${text}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    async function copyText(text, okMsg="Copiado! ✅"){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast(okMsg);
+      }catch(e){
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast(okMsg);
+      }
+    }
+
+    // Inject basic info
+    $("#emailText").textContent = CONFIG.email;
+    $("#phoneText").textContent = CONFIG.phoneDisplay;
+    $("#year").textContent = new Date().getFullYear();
+    $("#profileName").textContent = CONFIG.name;
+    $("#footerName").textContent = CONFIG.name;
+    $("#brandName").textContent = `${CONFIG.name} • Front-end`;
+
+    // Events
+    $("#btnWhats").addEventListener("click", openWhatsApp);
+    $("#btnWhats2").addEventListener("click", openWhatsApp);
+
+    $("#btnCopy").addEventListener("click", () => {
+      const contact = `E-mail: ${CONFIG.email} | WhatsApp: ${CONFIG.phoneDisplay}`;
+      copyText(contact, "Contato copiado! ✅");
+    });
+
+    $("#btnCopy2").addEventListener("click", () => {
+      copyText(CONFIG.email, "E-mail copiado! ✅");
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if(!id || id === "#") return;
+        const el = document.querySelector(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+
+    // Avatar fallback (se a imagem não carregar)
+    $("#avatar").addEventListener("error", () => {
+      $("#avatar").src =
+        "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(`
+          <svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'>
+            <defs>
+              <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+                <stop offset='0' stop-color='#e2e8f0'/>
+                <stop offset='1' stop-color='#f8fafc'/>
+              </linearGradient>
+            </defs>
+            <rect width='100%' height='100%' rx='32' fill='url(#g)'/>
+            <circle cx='150' cy='120' r='48' fill='#cbd5e1'/>
+            <rect x='70' y='182' width='160' height='86' rx='38' fill='#cbd5e1'/>
+          </svg>
+        `);
+    });
+  </script>
+</body>
+</html>
