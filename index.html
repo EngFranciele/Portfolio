@@ -244,7 +244,7 @@
     .bullets{ margin: 12px 0 0; padding-left: 18px; color: rgba(15,23,42,.80); }
     .bullets li{ margin: 6px 0; }
 
-    /* Project */
+    /* Projects */
     .project{
       padding: 18px;
       border-radius: var(--radius2);
@@ -358,7 +358,7 @@
 
         <aside class="card hero-right">
           <div class="profile">
-            <!-- Troque o arquivo em assets/perfil.jpg -->
+            <!-- Coloque sua foto em: assets/perfil.jpg -->
             <img class="avatar" id="avatar" src="assets/perfil.jpg" alt="Foto de perfil" />
             <div>
               <h3 id="profileName">Franciele</h3>
@@ -386,8 +386,8 @@
           </div>
 
           <div class="kpi" style="background: var(--surface2); border-style:dashed;">
-            <div class="n">Quer ver esse layout no seu estilo?</div>
-            <div class="t">Depois, posso adaptar com sua identidade visual (cores, fontes e seções extras).</div>
+            <div class="n">Atendimento simples e organizado</div>
+            <div class="t">Você sabe exatamente o que vai receber e quando.</div>
           </div>
         </aside>
       </div>
@@ -402,21 +402,25 @@
       <div class="grid">
         <div class="item">
           <h3>Site institucional</h3>
-          <p>Perfeito para apresentar você/empresa, serviços e facilitar contato.</p>
+          <p>Ideal para profissionais liberais e pequenos negócios que precisam se apresentar de forma profissional.</p>
           <ul class="bullets">
-            <li>Home + Sobre + Serviços + Contato</li>
-            <li>Responsivo (celular/pc)</li>
-            <li>Visual alinhado à sua marca</li>
+            <li>Até 4 páginas</li>
+            <li>Layout responsivo</li>
+            <li>Botão de WhatsApp e contato</li>
+            <li>Visual personalizado</li>
+            <li><strong>Investimento a partir de R$ 600,00</strong></li>
           </ul>
         </div>
 
         <div class="item">
           <h3>Landing page</h3>
-          <p>Uma página direta, ideal para anúncios e campanhas.</p>
+          <p>Página única focada em conversão, ideal para anúncios e campanhas.</p>
           <ul class="bullets">
-            <li>Texto organizado + CTA forte</li>
-            <li>Seções de prova social</li>
-            <li>Formulário ou botão WhatsApp</li>
+            <li>Estrutura otimizada para vendas ou contatos</li>
+            <li>Call to action estratégico</li>
+            <li>Layout responsivo</li>
+            <li>Entrega rápida</li>
+            <li><strong>Investimento a partir de R$ 450,00</strong></li>
           </ul>
         </div>
 
@@ -434,8 +438,8 @@
 
     <section id="projetos">
       <div class="section-title">
-        <h2>Projeto em destaque</h2>
-        <span>Seu primeiro case já vale ouro 💎</span>
+        <h2>Projetos</h2>
+        <span>Cases para mostrar seu trabalho</span>
       </div>
 
       <article class="project">
@@ -455,8 +459,26 @@
         </div>
 
         <div class="cta-row" style="margin-top:14px;">
+          <!-- Quando você publicar esse projeto, coloque o link real aqui -->
           <a class="btn primary" href="#" onclick="alert('Quando você publicar, coloque aqui o link do projeto! 😊'); return false;">Ver online</a>
           <a class="btn" href="#contato">Quero um site assim</a>
+        </div>
+      </article>
+
+      <article class="project" style="margin-top:16px;">
+        <span class="tag">Projeto conceito</span>
+        <h3>Site institucional — Profissional de serviços</h3>
+        <p>
+          Projeto conceito desenvolvido para demonstrar estrutura de site profissional para prestadores de serviços,
+          com foco em apresentação, organização dos serviços e geração de contatos.
+        </p>
+
+        <div class="meta">
+          <span class="chip">Layout clean</span>
+          <span class="chip">Seção de serviços</span>
+          <span class="chip">Depoimentos</span>
+          <span class="chip">CTA para WhatsApp</span>
+          <span class="chip">HTML • CSS • JavaScript</span>
         </div>
       </article>
     </section>
@@ -494,9 +516,9 @@
           <h3>Vamos tirar seu projeto do papel?</h3>
           <p>Me chama no WhatsApp e eu te envio uma proposta com prazo e valor.</p>
           <p style="margin-top:8px;">
-            <strong>E-mail:</strong> <span id="emailText">seuemail@exemplo.com</span>
+            <strong>E-mail:</strong> <span id="emailText">engenheirafrancielecruz@hotmail.com</span>
             <br/>
-            <strong>WhatsApp:</strong> <span id="phoneText">(00) 90000-0000</span>
+            <strong>WhatsApp:</strong> <span id="phoneText">(77) 99157-9761</span>
           </p>
         </div>
 
@@ -521,11 +543,11 @@
     // ====== CONFIGURE AQUI ======
     const CONFIG = {
       name: "Franciele",
-      email: "engenheirafrancielecruz@hotmail.com",      // <-- troque pelo seu
-      phone: "5577991579761",            // <-- troque (55 + DDD + número, sem espaços)
-      phoneDisplay: "(77) 99157-9761",    // <-- troque como quer mostrar
+      email: "engenheirafrancielecruz@hotmail.com",
+      phone: "5577991579761",
+      phoneDisplay: "(77) 99157-9761",
       whatsappMessage:
-        "Oi! Vi seu portfólio e quero um site profissional. Podemos conversar sobre orçamento e prazo?"
+        "Oi, Franciele! Vi seu portfólio e quero um site profissional. Podemos conversar sobre orçamento e prazo?"
     };
 
     const $ = (sel) => document.querySelector(sel);
